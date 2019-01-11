@@ -1,4 +1,7 @@
 function! necocommit#get_complete_position(input)
+  if bufname('%') != '.git/COMMIT_EDITMSG'
+    return -1
+  endif
   return match(a:input, 'fixup')
 endfunction
 
