@@ -1,7 +1,4 @@
 function! necocommit#get_complete_position(input)
-  if bufname('%') != '.git/COMMIT_EDITMSG'
-    return -1
-  endif
   return match(a:input, 'fixup')
 endfunction
 
@@ -15,7 +12,7 @@ function! necocommit#gather_candidates(complete_str)
   endif
   let commits = split(output, '\n')
   for msg in commits
-    call add(candidates, { 'word': 'fixup ' . msg })
+    call add(candidates, { 'word': 'fixup <' . msg . '>' })
   endfor
   return candidates
 endfunction

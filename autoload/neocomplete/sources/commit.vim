@@ -1,9 +1,10 @@
 let s:source = {
       \ 'name': 'commit',
-      \ 'kind': 'manual',
-      \ 'min_pattern_length' : 3,
+      \ 'kind': 'keyword',
+      \ 'min_pattern_length' : 5,
       \ 'is_volatile' : 1,
-      \ 'mark' : '[commit]'
+      \ 'mark' : '[commit]',
+      \ 'filetypes': { 'gitcommit': 1 }
       \ }
 
 function! s:source.get_complete_position(context)
